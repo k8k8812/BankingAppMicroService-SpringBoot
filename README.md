@@ -41,9 +41,20 @@ Account ||--|{ CheckingAccount : inherits
 Account ||--|{ SavingAccount : inherits
 ```
 
+
 <br>
 
-### 3. Project Logs
+### 3. Business Logic
+
+**Custoemr**
+
+1. once a new customer is created, a new checking account will be activated too; (balance: 0, action: activate); --> however, I can't add the current Date when activate a new account 🥲 yet. 
+
+
+
+<br>
+
+### 4. Project Logs
 
 ```python
 April 22 2022: started project. 
@@ -51,5 +62,6 @@ desgined ORM
 created models for Customer , Account , CheckingAccount , SavingAccount
 connected to MySql and successfully created tables accordingly.
 ```
+
 
 
