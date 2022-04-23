@@ -2,8 +2,8 @@
 
 a simple project to reproduce a banking system;
 ```java
-This is a side project for the weekend using the knowledge I have learnt from the java full stack training as a practice.
-prior to April 22, 2022, the training has covered: 
+This is a side project for the weekend using the knowledge I have learnt as a practice.
+
 ```
 
 ### 1. Spring Initialzr
@@ -12,7 +12,9 @@ Dependencies are:
 Spring Web, Spring Data JPA, Lombok, Validation, MySQL Driver and Spring Boot DevTool.
 ```
 
-
+```python
+prior to April 22, 2022, the training has covered: 
+```
 
 - [x] Core Concept of Java, 
 - [x] Spring Boot Framework
