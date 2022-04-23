@@ -25,7 +25,9 @@ prior to April 22, 2022, the training has covered:
 - [ ] AWS
 
 
-### 2. Entity Relationship 
+<br>
+
+### 2. Project Entity Relationship 
 
 ```mermaid
 erDiagram 
