@@ -47,7 +47,7 @@ Account ||--|{ SavingAccount : inherits
 
 ```python
 April 22 2022: started project. 
-desgined ORM and ERdiagram; 
+desgined ORM
 created models for Customer , Account , CheckingAccount , SavingAccount
 connected to MySql and successfully created tables accordingly.
 ```
