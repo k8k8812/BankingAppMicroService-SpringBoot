@@ -8,7 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
+
 
 @Entity
 @Getter
@@ -20,7 +20,7 @@ public class CheckingAccount extends Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long account_id;
 
     //    @SequenceGenerator (
 //            defines a primary key generator that may be referenced by
@@ -33,26 +33,28 @@ public class CheckingAccount extends Account {
 //            allocationSize = 1
 //    )
 
-    @Column(columnDefinition ="DECIMAL" )
+    @Column(columnDefinition ="DECIMAL default '0.0' " )
     private BigDecimal current_balance;
+
+    @Column(columnDefinition ="DECIMAL default '0.0' "  )
     private BigDecimal previous_balance;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:MM", timezone = "EST")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", timezone = "EST")
     private Date date;
 
     @NotNull
     private String action;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
-
 
 
     public CheckingAccount(BigDecimal current_balance, BigDecimal previous_balance,String action) {
         super(current_balance, previous_balance, action);
     }
+
 
 
 }

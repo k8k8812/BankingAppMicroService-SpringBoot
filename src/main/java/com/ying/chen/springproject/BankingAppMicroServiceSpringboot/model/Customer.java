@@ -42,4 +42,8 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<CheckingAccount> checkingAccountList = new ArrayList<CheckingAccount>();
 
+
+    public void addCheckingAccount(CheckingAccount checking) {
+        this.checkingAccountList.add(checking);
+    }
 }

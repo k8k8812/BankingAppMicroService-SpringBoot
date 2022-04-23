@@ -19,12 +19,12 @@ public class CustomerConfig {
 //    CommandLineRunner commandLineRunner(){   //added two records into database using CommandLineRunner;
 //        return args -> {
 //            Customer customer1 = new Customer(
-//                   -1L,"Mariah", "Klemn", "323-322-2445", "mariahKlemn@gmail.com", null
+//                   -1L,"Sweet", "Dream", "323-322-2445", "kkkn@gmail.com", null
 //            );
-//            Customer customer2 = new Customer(
-//                    -1L,"Super", "Mario", "887-238-8222", "SuperMario@gmail.com",null
-//            );
-//            customerRepository.saveAll(List.of(customer1, customer2));
+////            Customer customer2 = new Customer(
+////                    -1L,"Super", "Mario", "887-238-8222", "SuperMario@gmail.com",null
+////            );
+////            customerRepository.save(customer1);
 //        };
 //
 //    }
