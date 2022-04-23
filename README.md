@@ -8,7 +8,7 @@ Spring Web, Spring Data JPA, Lombok, Validation, MySQL Driver and Spring Boot De
 
 
 ```java
-This is a side project I do during the weekend using the knowledges I have learnt from the java full stack training as a practice.
+This is a side project for the weekend using the knowledge I have learnt from the java full stack training as a practice.
 prior to April 22, 2022, the training has covered: 
 ```
 - [x] Core Concept of Java, 
@@ -35,3 +35,16 @@ Customer ||--o{ Account: OneToMany
 Account ||--|{ CheckingAccount : inherits
 Account ||--|{ SavingAccount : inherits
 ```
+
+<br>
+
+### 3. Project Logs
+
+```python
+April 22 2022: started project. 
+desgined ORM and ERdiagram; 
+created models for Customer , Account , CheckingAccount , SavingAccount
+connected to MySql and successfully created tables accordingly.
+```
+
+
