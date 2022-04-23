@@ -22,6 +22,17 @@ public class CheckingAccount extends Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    //    @SequenceGenerator (
+//            defines a primary key generator that may be referenced by
+//            name when a generator element is specified for the GeneratedValue annotation.
+//            but Mysql does not require sequence generator; it's got auto_increment;
+
+//            name = "checking_account_sequence",
+//            sequenceName = "checking_account_sequence",
+//            initialValue = 1,
+//            allocationSize = 1
+//    )
+
     @Column(columnDefinition ="DECIMAL" )
     private BigDecimal current_balance;
     private BigDecimal previous_balance;
