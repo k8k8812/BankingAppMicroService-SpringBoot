@@ -34,6 +34,10 @@ public class Customer {
     @Column(columnDefinition = "varchar(30) default '000-000' ")
     private String contactNumber;
 
+    @NotBlank(message = "Please Enter your email address.")
+    @Column(unique = true, nullable = false)
+    private String email;
+
     @JsonIgnore
     @OneToMany(mappedBy = "customer")
     private List<CheckingAccount> checkingAccountList = new ArrayList<CheckingAccount>();
