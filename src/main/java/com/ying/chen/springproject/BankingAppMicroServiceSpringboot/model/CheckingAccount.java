@@ -50,6 +50,16 @@ public class CheckingAccount extends Account {
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
 
+    //constructor for manually adding one more checking account at CheckingService;
+    public CheckingAccount(Long account_id, BigDecimal current_balance, BigDecimal previous_balance, Date date, String action, Long customerId){
+        this.account_id = account_id;
+        this.current_balance = current_balance;
+        this.previous_balance = previous_balance;
+        this.date = date;
+        this.action = action;
+        this.customer.setId(customerId);
+    }
+
 
     public CheckingAccount(BigDecimal current_balance, BigDecimal previous_balance,String action) {
         super(current_balance, previous_balance, action);

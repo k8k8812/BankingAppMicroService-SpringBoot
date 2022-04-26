@@ -40,10 +40,28 @@ public class Customer {
 
     @JsonIgnore
     @OneToMany(mappedBy = "customer")
-    private List<CheckingAccount> checkingAccountList = new ArrayList<CheckingAccount>();
+    private List<CheckingAccount> checkingAccountList;
 
+    public CheckingAccount getIndividualAccount(Long id){
+        for(int idx = 0; idx<checkingAccountList.size(); idx++){
+            if(checkingAccountList.get(idx).getAccount_id() == id){
+                return checkingAccountList.get(idx);
+            }
+        }return new CheckingAccount();
+    }
 
-    public void addCheckingAccount(CheckingAccount checking) {
-        this.checkingAccountList.add(checking);
+    //one customer can have more than one checking account, hence the addCheckingAccount();
+    public void addCheckingAccount(CheckingAccount checkingAccount){
+        checkingAccount.setCustomer(this);
+        checkingAccountList.add(checkingAccount);
+    }
+
+    //update one of the checking accounts;
+    public void updateChecking(CheckingAccount checkingAccount){
+        CheckingAccount toUpdate = getIndividualAccount(checkingAccount.getAccount_id());
+        toUpdate.setAction(checkingAccount.getAction());
+        toUpdate.setCurrent_balance(checkingAccount.getCurrent_balance());
+        toUpdate.setPrevious_balance(checkingAccount.getPrevious_balance());
+        toUpdate.setDate(checkingAccount.getDate());
     }
 }

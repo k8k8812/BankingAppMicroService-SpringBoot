@@ -15,8 +15,6 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    @Autowired
-    private CheckingAccountService checkingService;
 
     @Autowired
     public CustomerService(CustomerRepository customerRepository) {
@@ -36,8 +34,6 @@ public class CustomerService {
             throw new IllegalStateException(">>>>>> Email taken >>>>>>>!");
         }
         customerRepository.save(customer);
-        checkingService.activateCheckingAccount(customer);
-
     }
 
     public Customer getCustomerById(Long id){
