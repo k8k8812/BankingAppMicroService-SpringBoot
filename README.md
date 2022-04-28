@@ -48,7 +48,6 @@ Account ||--|{ SavingAccount : inherits
 
 **Custoemr**
 
-1. once a new customer is created, a new checking account will be activated too; (balance: 0, action: activate); --> however, I can't add the current Date when activate a new account 🥲 yet. 
 
 
 
@@ -63,5 +62,13 @@ created models for Customer , Account , CheckingAccount , SavingAccount
 connected to MySql and successfully created tables accordingly.
 ```
 
+```python
+April 26 2022 progress.
 
+1. new customer can be created; 
+2. once a customer is created, a new account can be created by given customer ID;
+3. more than one checking account can be created for one customer; 
+4. each new checking account will come as current_balance: zero; previous_balance: zero, date upon create, action('activate', 'withdraw', 'deposit'). customer_id)
+5. have Swagger dependency injected for documentation purposes for later. 
+```
 
