@@ -1,12 +1,13 @@
 package com.ying.chen.springproject.BankingAppMicroServiceSpringboot.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
-import org.hibernate.annotations.Check;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,6 @@ import java.util.List;
 @Entity
 @Table( name = "customer")
 @AllArgsConstructor
-@NoArgsConstructor
 @ToString
 @Getter
 @Setter
@@ -24,7 +24,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull(message = "First Name Cannot Be Blank.")
+    @NotBlank(message = "First Name Cannot Be Blank.")
     private String firstName;
 
     @NotBlank(message = "Must Give a Last Name.")
@@ -34,13 +34,23 @@ public class Customer {
     @Column(columnDefinition = "varchar(30) default '000-000' ")
     private String contactNumber;
 
-    @NotBlank(message = "Please Enter your email address.")
+    @NotNull(message = "Please Enter your email address.")
     @Column(unique = true, nullable = false)
     private String email;
 
+    @NotBlank(message = "Please enter password with at least 4 digits")
+    @Pattern(regexp = "[a-zA-Z0-9]{4}.")
+    private String password;
+
     @JsonIgnore
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @Schema(description = "Having a List of Checking Account setup for per Customer", example = "List will contain Checking Account Objects")
     private List<CheckingAccount> checkingAccountList;
+
+    public Customer(){
+        this(-1L,"N/A","N/A", "", "N/A", "SE8uB", new ArrayList<>());
+    }
+
 
     public CheckingAccount getIndividualAccount(Long id){
         for(int idx = 0; idx<checkingAccountList.size(); idx++){

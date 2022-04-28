@@ -65,6 +65,19 @@ public class CheckingAccount extends Account {
         super(current_balance, previous_balance, action);
     }
 
+    public BigDecimal withdraw(BigDecimal withdraw){
+        this.action = "withdraw";
+        this.previous_balance = this.current_balance;
+        this.current_balance = this.current_balance.subtract(withdraw);
+        return this.current_balance;
+    }
+
+    public BigDecimal deposit(BigDecimal deposit){
+        this.action = "deposit";
+        this.previous_balance = this.current_balance;
+        this.current_balance = this.current_balance.add(deposit);
+        return this.current_balance;
+    }
 
 
 }

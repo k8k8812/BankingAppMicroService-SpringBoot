@@ -22,18 +22,27 @@ public class CustomerService {
     }
 
     public List<Customer> getAllCustomers(){
+
         return customerRepository.findAll();
     }
 
-    //once a new customer is created, a new checking account will be created too;
+
     public void addNewCustomer(Customer customer) {
         Optional<Customer> found =
                 customerRepository.getCustomerByEmail(customer.getEmail()); //check if email is presented in the database;
 //
         if(found.isPresent()){
             throw new IllegalStateException(">>>>>> Email taken >>>>>>>!");
+        }else{
+            Customer toAdd = new Customer();
+            toAdd.setEmail(customer.getEmail());
+            toAdd.setContactNumber(customer.getContactNumber());
+            toAdd.setFirstName(customer.getFirstName());
+            toAdd.setLastName(customer.getLastName());
+            toAdd.setPassword(customer.getPassword());
+            customerRepository.save(toAdd);
         }
-        customerRepository.save(customer);
+
     }
 
     public Customer getCustomerById(Long id){
@@ -46,6 +55,8 @@ public class CustomerService {
         return null;
 
     }
+
+
 
 
 }
