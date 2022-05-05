@@ -56,14 +56,14 @@ Account ||--|{ SavingAccount : inherits
 ### 4. Project Logs
 
 ```python
-April 22 2022: started project. 
+
 desgined ORM
 created models for Customer , Account , CheckingAccount , SavingAccount
 connected to MySql and successfully created tables accordingly.
 ```
 
 ```python
-April 26 2022 progress.
+
 
 1. new customer can be created; 
 2. once a customer is created, a new account can be created by given customer ID;
